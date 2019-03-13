@@ -2,7 +2,7 @@
 
 const line = require('@line/bot-sdk');
 const express = require('express');
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const axios = require('axios');
 
 // create LINE SDK config from env variables
@@ -18,8 +18,8 @@ const client = new line.Client(config);
 // about Express itself: https://expressjs.com/
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
