@@ -45,7 +45,7 @@ function handleEvent(event) {
   var userID = event.message.userId;
 
   // Found เริ่มต้นใช้งาน
-  if (msg === "Getting started") {
+  if (msg === "เริ่มต้นใช้งาน") {
 
     // create a echoing image
     const echo = {
@@ -56,13 +56,13 @@ function handleEvent(event) {
 
     // use reply API
     return client.replyMessage(event.replyToken, echo);
-  } else if (msg === "Edit data") {
+  } else if (msg === "แก้ไขข้อมูล") {
 
     // create a echoing image
     const echo = {
       "type": "imagemap",
       "baseUrl": "https://i.imgur.com/ZdUE0ih.jpg",
-      "altText": "การตั้งค่า",
+      "altText": "แก้ไขข้อมูล",
       "baseSize": {
           "width": 1040,
           "height": 550
@@ -84,7 +84,7 @@ function handleEvent(event) {
 
     // use reply API
     return client.replyMessage(event.replyToken, echo);
-  } else if (msg === "Health Information") {
+  } else if (msg === "ข้อมูลสุขภาพ") {
     
     // create a echoing image
     const echo = {  
@@ -98,7 +98,7 @@ function handleEvent(event) {
 
     // use reply API
     return client.replyMessage(event.replyToken, echo);
-  } else if (msg === "Ask for help") {
+  } else if (msg === "ขอความช่วยเหลือ") {
     
     // create a echoing image
     const echo = {
