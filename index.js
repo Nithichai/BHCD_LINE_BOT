@@ -84,19 +84,8 @@ function handleEvent(event) {
     
     // create a echoing image
     const echo = {
-      "type": "template",
-      "altText": "ดูข้อมูลสุขภาพ",
-      "template": {
-          "type": "confirm",
-          "text": "ดูต้องการข้อมูลสุขภาพหรือไม่?",
-          "actions": [
-              {
-                "type": "uri",
-                "label": "Yes",
-                "uri": "https://basic-health-care-device.herokuapp.com/#/health-info"
-              }
-          ]
-      }
+      "type": "text",
+      "text": "https://basic-health-care-device.herokuapp.com/#/health-info"
     }
 
     // use reply API
