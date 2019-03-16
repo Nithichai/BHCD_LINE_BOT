@@ -67,7 +67,7 @@ function handleEvent(event) {
         {
             "type": "uri",
             "thumbnailImageUrl": "https://i.imgur.com/ZdUE0ih.jpg",
-            "linkUri": "https://numpapick.herokuapp.com/main.php?userid=" + userID,
+            "linkUri": "https://basic-health-care-device.herokuapp.com/#/device-setting",
             "area": {
                 "x": 0,
                 "y": 0,
@@ -83,12 +83,19 @@ function handleEvent(event) {
   } else if (msg === "ข้อมูลสุขภาพ") {
     
     // create a echoing image
-    const echo = {  
-      "type":"uri",
-      "label":"ดูข้อมูลสุขภาพ",
-      "uri":"https://www.google.com/",
-      "altUri": {
-          "desktop" : "https://www.google.com/"
+    const echo = {
+      "type": "template",
+      "altText": "ดูข้อมูลสุขภาพ",
+      "template": {
+          "type": "confirm",
+          "text": "ดูต้องการข้อมูลสุขภาพหรือไม่?",
+          "actions": [
+              {
+                "type": "uri",
+                "label": "Yes",
+                "uri": "https://basic-health-care-device.herokuapp.com/#/health-info"
+              }
+          ]
       }
     }
 
