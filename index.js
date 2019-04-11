@@ -31,7 +31,18 @@ app.post('/callback', line.middleware(config), (req, res) => {
 
 // event handler
 function handleEvent(event) {
-  if (event.type === 'message' && event.message.type === 'text') {
+  console.log(event.type)
+  if (event.type === 'follow') {
+
+    // create a echoing welcome message
+    const echo = {
+      "type": "text",
+      "text": "ยินดีต้อนรับสู่ Basic Health Care Device โปรดลงทะเบียนที่เว็บไซต์ของเรา https://basic-health-care-device.herokuapp.com"
+    }
+
+    // use reply API
+    return client.replyMessage(event.replyToken, echo);
+  } else if (event.type === 'message' && event.message.type === 'text') {
     // get message from rich menus
     var msg = event.message.text;
     var userID = event.message.userId;
@@ -113,16 +124,6 @@ function handleEvent(event) {
       // use reply API
       return client.replyMessage(event.replyToken, echo);
     }
-  } else if (event.type === 'follow') {
-    
-    // create a echoing image
-    const echo = {
-      "type": "text",
-      "text": "ยินดีต้อนรับสู่ Basic Health Care Device โปรดลงทะเบียนที่เว็บไซต์ของเรา https://basic-health-care-device.herokuapp.com"
-    }
-
-    // use reply API
-    return client.replyMessage(event.replyToken, echo);
   } else {
     // ignore non-text-message event
     return Promise.resolve(null);
