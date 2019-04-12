@@ -3,6 +3,16 @@
 const line = require('@line/bot-sdk');
 const express = require('express');
 const axios = require('axios');
+const microgear = require('microgear');
+
+const APPID  = process.env.APPID;
+const KEY    = process.env.APPKEY;
+const SECRET = process.env.APPSECRET;
+
+const microgear = MicroGear.create({
+  key : KEY,
+  secret : SECRET
+});
 
 // create LINE SDK config from env variables
 const config = {
@@ -48,7 +58,12 @@ function handleEvent(event) {
     var userID = event.message.userId;
 
     // Found เริ่มต้นใช้งาน
-    if (msg === "เริ่มต้นใช้งาน") {
+    if (msg.search("Acknowledge") != -1) {
+      var dataList = msg.split(":")
+      var device = dataList[1]
+      microgear(device, "ACK")
+      return Promise.resolve(null)
+    } else if (msg === "เริ่มต้นใช้งาน") {
 
       // create a echoing image
       const echo = {
