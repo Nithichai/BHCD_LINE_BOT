@@ -13,6 +13,7 @@ const microgear = MicroGear.create({
   key : KEY,
   secret : SECRET
 });
+microgear.connect(APPID);
 
 // create LINE SDK config from env variables
 const config = {
