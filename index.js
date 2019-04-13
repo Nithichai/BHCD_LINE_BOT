@@ -63,11 +63,9 @@ function handleEvent(event) {
       var dataList = msg.split(":")
       var device = dataList[1]
       console.log(msg, device)
-      microgear.on('connected', function() {
-        microgear.setalias("HTML-" + device);
-        microgear.chat(device, "ACK")
-        return Promise.resolve(null)
-      });
+      microgear.setalias("HTML-" + device);
+      microgear.chat(device, "ACK")
+      return Promise.resolve(null)
     } else if (msg === "เริ่มต้นใช้งาน") {
 
       // create a echoing image
