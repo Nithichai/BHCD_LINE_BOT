@@ -20,9 +20,10 @@ microgear.connect(APPID);
 microgear.on('connected', function() {
   setInterval(function() {
     var device = queue.splice(-1, 1)
-    console.log(device)
-    microgear.chat(device, 'ACK')
-  },1000);
+    if (device.length === 0) {
+      microgear.chat(device, 'ACK')
+    }
+  }, 50);
 })
 
 // create LINE SDK config from env variables
