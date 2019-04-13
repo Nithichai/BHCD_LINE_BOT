@@ -58,12 +58,13 @@ function handleEvent(event) {
     var userID = event.message.userId;
 
     // Found เริ่มต้นใช้งาน
-    if (msg.search("Acknowledge") != -1) {
+    if (msg.search("Acknowledge") !== -1) {
+      console.log(msg)
+      var dataList = msg.split(":")
+      var device = dataList[1]
+      console.log(msg, device)
       microgear.on('connected', function() {
-        // microgear.setalias("mygear");
-        var dataList = msg.split(":")
-        var device = dataList[1]
-        console.log(device)
+        microgear.setalias("HTML-" + device);
         microgear.chat(device, "ACK")
         return Promise.resolve(null)
       });
