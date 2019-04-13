@@ -3,7 +3,7 @@
 const line = require('@line/bot-sdk');
 const express = require('express');
 const axios = require('axios');
-const microgear = require('microgear');
+const MicroGear = require('microgear');
 
 const APPID  = process.env.APPID;
 const KEY    = process.env.APPKEY;
@@ -89,7 +89,7 @@ function handleEvent(event) {
           {
               "type": "uri",
               "thumbnailImageUrl": "https://i.imgur.com/ZdUE0ih.jpg",
-              "linkUri": "https://basic-health-care-device.herokuapp.com/#/device-setting",
+              "linkUri": "https://basic-health-care-device.herokuapp.com/device-setting",
               "area": {
                   "x": 0,
                   "y": 0,
@@ -107,7 +107,7 @@ function handleEvent(event) {
       // create a echoing image
       const echo = {
         "type": "text",
-        "text": "https://basic-health-care-device.herokuapp.com/#/health-info"
+        "text": "https://basic-health-care-device.herokuapp.com/health-info"
       }
 
       // use reply API
