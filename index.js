@@ -42,7 +42,6 @@ app.post('/callback', line.middleware(config), (req, res) => {
 
 // event handler
 function handleEvent(event) {
-  console.log(event.type)
   if (event.type === 'follow') {
 
     // create a echoing welcome message
@@ -60,10 +59,14 @@ function handleEvent(event) {
 
     // Found เริ่มต้นใช้งาน
     if (msg.search("Acknowledge") != -1) {
-      var dataList = msg.split(":")
-      var device = dataList[1]
-      microgear.chat(device, "ACK")
-      return Promise.resolve(null)
+      microgear.on('connected', function() {
+        // microgear.setalias("mygear");
+        var dataList = msg.split(":")
+        var device = dataList[1]
+        console.log(device)
+        microgear.chat(device, "ACK")
+        return Promise.resolve(null)
+      });
     } else if (msg === "เริ่มต้นใช้งาน") {
 
       // create a echoing image
