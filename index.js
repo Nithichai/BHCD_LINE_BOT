@@ -61,7 +61,7 @@ function handleEvent(event) {
     if (msg.search("Acknowledge") != -1) {
       var dataList = msg.split(":")
       var device = dataList[1]
-      microgear(device, "ACK")
+      microgear.chat(device, "ACK")
       return Promise.resolve(null)
     } else if (msg === "เริ่มต้นใช้งาน") {
 
