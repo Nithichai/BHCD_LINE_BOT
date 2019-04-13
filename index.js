@@ -9,11 +9,18 @@ const APPID  = process.env.APPID;
 const KEY    = process.env.APPKEY;
 const SECRET = process.env.APPSECRET;
 
+var queue = []
+
 const microgear = MicroGear.create({
   key : KEY,
   secret : SECRET
 });
 microgear.connect(APPID);
+
+microgear.on('connected', function() {
+  var device = queue.splice(-1, 1)
+  microgear.chat(device, "ACK")
+})
 
 // create LINE SDK config from env variables
 const config = {
@@ -59,12 +66,9 @@ function handleEvent(event) {
 
     // Found เริ่มต้นใช้งาน
     if (msg.search("Acknowledge") !== -1) {
-      console.log(msg)
       var dataList = msg.split(":")
       var device = dataList[1]
-      console.log(msg, device)
-      microgear.setalias("HTML-" + device);
-      microgear.chat(device, "ACK")
+      queue.push(device)
       return Promise.resolve(null)
     } else if (msg === "เริ่มต้นใช้งาน") {
 
