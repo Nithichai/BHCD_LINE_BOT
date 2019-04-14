@@ -15,7 +15,6 @@ const microgear = MicroGear.create({
   key : KEY,
   secret : SECRET
 });
-microgear.connect(APPID);
 
 microgear.on('connected', function() {
   setInterval(function() {
@@ -26,6 +25,8 @@ microgear.on('connected', function() {
     }
   }, 50);
 })
+
+microgear.connect(APPID);
 
 // create LINE SDK config from env variables
 const config = {
