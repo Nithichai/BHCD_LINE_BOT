@@ -21,7 +21,7 @@ microgear.on('connected', function() {
   setInterval(function() {
     var device = queue.splice(-1, 1)
     if (device.length > 0) {
-      microgear.setAlias(device[0]);
+      microgear.setAlias("bhcd-" + device[0]);
       microgear.chat(device[0], 'ACK')
     }
   }, 50);
