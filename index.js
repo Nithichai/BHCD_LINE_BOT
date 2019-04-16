@@ -17,7 +17,6 @@ const microgear = MicroGear.create({
 });
 
 microgear.on('connected', function() {
-  microgear.setAlias("bhcd-" + device[0]);
   var device = queue.splice(-1, 1)
   if (device.length > 0) {
     setInterval(function() {
