@@ -20,7 +20,7 @@ microgear.on('connected', function() {
   var device = queue.splice(-1, 1)
   if (device.length > 0) {
     setInterval(function() {
-      microgear.chat(device[0], 'Hello world.');
+      microgear.chat(device[0], 'ACK');
     }, 1000);
   }
 })
