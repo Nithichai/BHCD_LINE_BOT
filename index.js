@@ -17,13 +17,13 @@ const microgear = MicroGear.create({
 });
 
 microgear.on('connected', function() {
-  setInterval(function() {
-    var device = queue.splice(-1, 1)
-    if (device.length > 0) {
-      microgear.setAlias("bhcd-" + device[0]);
-      microgear.chat(device[0], 'ACK')
-    }
-  }, 50);
+  microgear.setAlias("bhcd-" + device[0]);
+  var device = queue.splice(-1, 1)
+  if (device.length > 0) {
+    setInterval(function() {
+      microgear.chat(device[0], 'Hello world.');
+    }, 50);
+  }
 })
 
 microgear.connect(APPID);
