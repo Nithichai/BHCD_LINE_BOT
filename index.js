@@ -22,7 +22,7 @@ microgear.on('connected', function() {
   if (device.length > 0) {
     setInterval(function() {
       microgear.chat(device[0], 'Hello world.');
-    }, 50);
+    }, 1000);
   }
 })
 
