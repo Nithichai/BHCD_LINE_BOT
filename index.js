@@ -80,8 +80,8 @@ function handleEvent(event) {
       // create a echoing image
       const echo = {
         "type": 'image', 
-        "originalContentUrl": "https://i.imgur.com/GcU2NS9.jpg",
-        "previewImageUrl": "https://i.imgur.com/GcU2NS9.jpg" 
+        "originalContentUrl": "https://i.imgur.com/vXVIOmm.png",
+        "previewImageUrl": "https://i.imgur.com/vXVIOmm.png" 
       }
 
       // use reply API
